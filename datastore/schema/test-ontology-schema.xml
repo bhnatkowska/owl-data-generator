@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns:ns2="http://www.w3.org/2001/XInclude" name="test-ontology-schema">
+    <seed>123456789L</seed>
+    <rng name="PdgfDefaultRandom"/>
+    <property name="SF" type="double">1</property>
+    <table name="Company">
+        <size>1 * ${SF}</size>
+        <field name="__identifier__" type="VARCHAR">
+            <gen_PrePostfix>
+                <gen_Id>
+                    <min>1</min>
+                </gen_Id>
+                <prefix>Company</prefix>
+            </gen_PrePostfix>
+        </field>
+        <field name="foundationYear" type="NUMERIC">
+            <gen_LongNumber>
+                <min>0</min>
+                <max>65535</max>
+                <distribution name="Normal" mean="2000.0" sd="15.0"/>
+            </gen_LongNumber>
+        </field>
+        <field name="name" type="VARCHAR">
+            <gen_DictList>
+                <unique>true</unique>
+                <size>1</size>
+                <separator>|</separator>
+                <file>/home/ubuntu/ontology-data-generator/datastore/dictionary/job/company_names.dict</file>
+            </gen_DictList>
+        </field>
+        <field name="hasFounder" type="VARCHAR">
+            <gen_Template>
+                <getValue><![CDATA[
+                    int number = generator[0].getIntValue();
+                    String reference = generator[number].toString();
+                    fvdto.setBothValues(reference);
+                ]]></getValue>
+                <gen_LongNumber>
+                    <min>1</min>
+                    <max>2</max>
+                </gen_LongNumber>
+                <gen_ReferenceValue choose="random" from="historical">
+                    <reference field="__identifier__" table="Worker"/>
+                </gen_ReferenceValue>
+                <gen_ReferenceValue choose="random" from="historical">
+                    <reference field="__identifier__" table="Person"/>
+                </gen_ReferenceValue>
+            </gen_Template>
+        </field>
+    </table>
+    <table name="Profession">
+        <size>3 * ${SF}</size>
+        <field name="__identifier__" type="VARCHAR">
+            <gen_PrePostfix>
+                <gen_Id>
+                    <min>1</min>
+                </gen_Id>
+                <prefix>Profession</prefix>
+            </gen_PrePostfix>
+        </field>
+        <field name="name" type="VARCHAR">
+            <gen_DictList>
+                <unique>true</unique>
+                <size>1</size>
+                <separator>|</separator>
+                <file>/home/ubuntu/ontology-data-generator/datastore/dictionary/job/occupations.dict</file>
+            </gen_DictList>
+        </field>
+    </table>
+    <table name="Worker">
+        <size>3 * ${SF}</size>
+        <field name="__identifier__" type="VARCHAR">
+            <gen_PrePostfix>
+                <gen_Id>
+                    <min>1</min>
+                </gen_Id>
+                <prefix>Worker</prefix>
+            </gen_PrePostfix>
+        </field>
+        <field name="birthdate" type="DATE">
+            <gen_Sequential concatenateResults="true">
+                <gen_DateTime>
+                    <useFixedStepSize>false</useFixedStepSize>
+                    <inputFormat>yyyy-MM-dd</inputFormat>
+                    <startDate>1970-01-01</startDate>
+                    <endDate>2000-01-01</endDate>
+                    <outputFormat>yyyy-MM-dd</outputFormat>
+                </gen_DateTime>
+                <gen_StaticValue>
+                    <value>T00:00:00Z</value>
+                </gen_StaticValue>
+            </gen_Sequential>
+        </field>
+        <field name="typeOfAgreement" type="VARCHAR">
+            <gen_DictList>
+                <unique>true</unique>
+                <size>1</size>
+                <separator>|</separator>
+                <file>/home/ubuntu/ontology-data-generator/datastore/dictionary/job/contract_types.dict</file>
+            </gen_DictList>
+        </field>
+        <field name="givenName" type="VARCHAR">
+            <gen_DictList>
+                <unique>true</unique>
+                <size>1</size>
+                <separator>|</separator>
+                <file>/home/ubuntu/ontology-data-generator/datastore/dictionary/personal_data/first_names.dict</file>
+            </gen_DictList>
+        </field>
+        <field name="isFirstJob" type="BOOLEAN">
+            <gen_LongNumber>
+                <min>0</min>
+                <max>1</max>
+            </gen_LongNumber>
+        </field>
+        <field name="weight" type="DOUBLE">
+            <gen_DoubleNumber>
+                <minD>2.0</minD>
+                <maxD>1.7976931348623157E308</maxD>
+                <decimalPlaces roundPlainValue="true" roundingMode="HALF_EVEN">2</decimalPlaces>
+                <distribution name="Normal" mean="75.0" sd="20.0"/>
+            </gen_DoubleNumber>
+        </field>
+        <field name="likesWebsite" type="VARCHAR">
+            <gen_DictList>
+                <unique>true</unique>
+                <size>1</size>
+                <separator>|</separator>
+                <file>/home/ubuntu/ontology-data-generator/datastore/dictionary/websites.dict</file>
+            </gen_DictList>
+        </field>
+        <field name="nation" type="VARCHAR">
+            <gen_DictList>
+                <unique>true</unique>
+                <size>1</size>
+                <separator>|</separator>
+                <file>/home/ubuntu/ontology-data-generator/datastore/dictionary/geographical/countries.dict</file>
+            </gen_DictList>
+        </field>
+        <field name="telephone" type="NUMERIC">
+            <gen_LongNumber>
+                <min>100000000</min>
+                <max>999999999</max>
+            </gen_LongNumber>
+        </field>
+        <field name="experience" type="NUMERIC">
+            <gen_LongNumber>
+                <min>1</min>
+                <max>9223372036854775806</max>
+                <distribution name="Normal" mean="5.0" sd="3.0"/>
+            </gen_LongNumber>
+        </field>
+        <field name="salary" type="NUMERIC">
+            <gen_LongNumber>
+                <min>1</min>
+                <max>9223372036854775806</max>
+                <distribution name="Normal" mean="4800.0" sd="2500.0"/>
+            </gen_LongNumber>
+        </field>
+        <field name="height" type="NUMERIC">
+            <gen_LongNumber>
+                <min>1</min>
+                <max>299</max>
+                <distribution name="Normal" mean="170.0" sd="15.0"/>
+            </gen_LongNumber>
+        </field>
+        <field name="surname" type="VARCHAR">
+            <gen_DictList>
+                <unique>true</unique>
+                <size>1</size>
+                <separator>|</separator>
+                <file>/home/ubuntu/ontology-data-generator/datastore/dictionary/personal_data/last_names.dict</file>
+            </gen_DictList>
+        </field>
+        <field name="emailAddress" type="VARCHAR">
+            <gen_Sequential concatenateResults="true">
+                <gen_Template>
+                    <getValue><![CDATA[
+                    String formattedFragment = generator[0].toString().toLowerCase().trim().replaceAll(" ", ".");
+                    fvdto.setBothValues(formattedFragment);
+                ]]></getValue>
+                    <gen_OtherFieldValue>
+                        <reference field="givenName"/>
+                    </gen_OtherFieldValue>
+                </gen_Template>
+                <gen_StaticValue>
+                    <value>.</value>
+                </gen_StaticValue>
+                <gen_Template>
+                    <getValue><![CDATA[
+                    String formattedFragment = generator[0].toString().toLowerCase().trim().replaceAll(" ", ".");
+                    fvdto.setBothValues(formattedFragment);
+                ]]></getValue>
+                    <gen_OtherFieldValue>
+                        <reference field="surname"/>
+                    </gen_OtherFieldValue>
+                </gen_Template>
+                <gen_StaticValue>
+                    <value>@</value>
+                </gen_StaticValue>
+                <gen_DictList>
+                    <file>/home/ubuntu/ontology-data-generator/datastore/dictionary/personal_data/email_providers.dict</file>
+                </gen_DictList>
+            </gen_Sequential>
+        </field>
+        <field name="interest" type="VARCHAR">
+            <gen_DictList>
+                <unique>true</unique>
+                <size>1</size>
+                <separator>|</separator>
+                <file>/home/ubuntu/ontology-data-generator/datastore/dictionary/personal_data/hobbies.dict</file>
+            </gen_DictList>
+        </field>
+        <field name="jobSatisfaction" type="NUMERIC">
+            <gen_LongNumber>
+                <min>1</min>
+                <max>10</max>
+            </gen_LongNumber>
+        </field>
+        <field name="name" type="VARCHAR">
+            <gen_Sequential concatenateResults="true">
+                <gen_OtherFieldValue>
+                    <reference field="givenName"/>
+                </gen_OtherFieldValue>
+                <gen_StaticValue>
+                    <value> </value>
+                </gen_StaticValue>
+                <gen_OtherFieldValue>
+                    <reference field="surname"/>
+                </gen_OtherFieldValue>
+            </gen_Sequential>
+        </field>
+        <field name="hasProfession" type="VARCHAR">
+            <gen_Template>
+                <getValue><![CDATA[
+                    int number = generator[0].getIntValue();
+                    String reference = generator[number].toString();
+                    fvdto.setBothValues(reference);
+                ]]></getValue>
+                <gen_LongNumber>
+                    <min>1</min>
+                    <max>1</max>
+                </gen_LongNumber>
+                <gen_ReferenceValue choose="random" from="historical">
+                    <reference field="__identifier__" table="Profession"/>
+                </gen_ReferenceValue>
+            </gen_Template>
+        </field>
+        <field name="worksFor" type="VARCHAR">
+            <gen_Template>
+                <getValue><![CDATA[
+                    int number = generator[0].getIntValue();
+                    String reference = generator[number].toString();
+                    fvdto.setBothValues(reference);
+                ]]></getValue>
+                <gen_LongNumber>
+                    <min>1</min>
+                    <max>1</max>
+                </gen_LongNumber>
+                <gen_ReferenceValue choose="random" from="historical">
+                    <reference field="__identifier__" table="Company"/>
+                </gen_ReferenceValue>
+            </gen_Template>
+        </field>
+    </table>
+    <table name="Person">
+        <size>3 * ${SF}</size>
+        <field name="__identifier__" type="VARCHAR">
+            <gen_PrePostfix>
+                <gen_Id>
+                    <min>1</min>
+                </gen_Id>
+                <prefix>Person</prefix>
+            </gen_PrePostfix>
+        </field>
+        <field name="birthdate" type="DATE">
+            <gen_Sequential concatenateResults="true">
+                <gen_DateTime>
+                    <useFixedStepSize>false</useFixedStepSize>
+                    <inputFormat>yyyy-MM-dd</inputFormat>
+                    <startDate>1970-01-01</startDate>
+                    <endDate>2000-01-01</endDate>
+                    <outputFormat>yyyy-MM-dd</outputFormat>
+                </gen_DateTime>
+                <gen_StaticValue>
+                    <value>T00:00:00Z</value>
+                </gen_StaticValue>
+            </gen_Sequential>
+        </field>
+        <field name="height" type="NUMERIC">
+            <gen_LongNumber>
+                <min>1</min>
+                <max>299</max>
+                <distribution name="Normal" mean="170.0" sd="15.0"/>
+            </gen_LongNumber>
+        </field>
+        <field name="surname" type="VARCHAR">
+            <gen_DictList>
+                <unique>true</unique>
+                <size>1</size>
+                <separator>|</separator>
+                <file>/home/ubuntu/ontology-data-generator/datastore/dictionary/personal_data/last_names.dict</file>
+            </gen_DictList>
+        </field>
+        <field name="emailAddress" type="VARCHAR">
+            <gen_Sequential concatenateResults="true">
+                <gen_Template>
+                    <getValue><![CDATA[
+                    String formattedFragment = generator[0].toString().toLowerCase().trim().replaceAll(" ", ".");
+                    fvdto.setBothValues(formattedFragment);
+                ]]></getValue>
+                    <gen_OtherFieldValue>
+                        <reference field="givenName"/>
+                    </gen_OtherFieldValue>
+                </gen_Template>
+                <gen_StaticValue>
+                    <value>.</value>
+                </gen_StaticValue>
+                <gen_Template>
+                    <getValue><![CDATA[
+                    String formattedFragment = generator[0].toString().toLowerCase().trim().replaceAll(" ", ".");
+                    fvdto.setBothValues(formattedFragment);
+                ]]></getValue>
+                    <gen_OtherFieldValue>
+                        <reference field="surname"/>
+                    </gen_OtherFieldValue>
+                </gen_Template>
+                <gen_StaticValue>
+                    <value>@</value>
+                </gen_StaticValue>
+                <gen_DictList>
+                    <file>/home/ubuntu/ontology-data-generator/datastore/dictionary/personal_data/email_providers.dict</file>
+                </gen_DictList>
+            </gen_Sequential>
+        </field>
+        <field name="interest" type="VARCHAR">
+            <gen_DictList>
+                <unique>true</unique>
+                <size>1</size>
+                <separator>|</separator>
+                <file>/home/ubuntu/ontology-data-generator/datastore/dictionary/personal_data/hobbies.dict</file>
+            </gen_DictList>
+        </field>
+        <field name="givenName" type="VARCHAR">
+            <gen_DictList>
+                <unique>true</unique>
+                <size>1</size>
+                <separator>|</separator>
+                <file>/home/ubuntu/ontology-data-generator/datastore/dictionary/personal_data/first_names.dict</file>
+            </gen_DictList>
+        </field>
+        <field name="weight" type="DOUBLE">
+            <gen_DoubleNumber>
+                <minD>2.0</minD>
+                <maxD>1.7976931348623157E308</maxD>
+                <decimalPlaces roundPlainValue="true" roundingMode="HALF_EVEN">2</decimalPlaces>
+                <distribution name="Normal" mean="75.0" sd="20.0"/>
+            </gen_DoubleNumber>
+        </field>
+        <field name="likesWebsite" type="VARCHAR">
+            <gen_DictList>
+                <unique>true</unique>
+                <size>1</size>
+                <separator>|</separator>
+                <file>/home/ubuntu/ontology-data-generator/datastore/dictionary/websites.dict</file>
+            </gen_DictList>
+        </field>
+        <field name="nation" type="VARCHAR">
+            <gen_DictList>
+                <unique>true</unique>
+                <size>1</size>
+                <separator>|</separator>
+                <file>/home/ubuntu/ontology-data-generator/datastore/dictionary/geographical/countries.dict</file>
+            </gen_DictList>
+        </field>
+        <field name="telephone" type="NUMERIC">
+            <gen_LongNumber>
+                <min>100000000</min>
+                <max>999999999</max>
+            </gen_LongNumber>
+        </field>
+        <field name="name" type="VARCHAR">
+            <gen_Sequential concatenateResults="true">
+                <gen_OtherFieldValue>
+                    <reference field="givenName"/>
+                </gen_OtherFieldValue>
+                <gen_StaticValue>
+                    <value> </value>
+                </gen_StaticValue>
+                <gen_OtherFieldValue>
+                    <reference field="surname"/>
+                </gen_OtherFieldValue>
+            </gen_Sequential>
+        </field>
+    </table>
+</schema>

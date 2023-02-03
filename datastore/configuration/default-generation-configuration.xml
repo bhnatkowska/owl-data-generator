@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<generation>
+    <scheduler name="DefaultScheduler"/>
+    <output name="CSVRowOutput">
+        <charset>UTF-8</charset>
+        <delimiter>,</delimiter>
+        <fileEnding>.csv</fileEnding>
+        <fileTemplate>outputDir + table.getName() + fileEnding</fileTemplate>
+        <outputDir>/home/mateusz/IdeaProjects/ontology-data-generator/datastore/output/</outputDir>
+        <quotationCharacter>"</quotationCharacter>
+        <quoteStrings>false</quoteStrings>
+        <sortByRowID>true</sortByRowID>
+    </output>
+    <schema name="default">
+        <tables>
+        </tables>
+    </schema>
+</generation>
