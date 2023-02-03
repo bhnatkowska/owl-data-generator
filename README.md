@@ -7,7 +7,7 @@ dictionary - example glossary definitions used for generation process
 configuration - automatically generated configurations by the owl-data-generator for the PDGF tool
 schema - automatically generated schema  by the owl-data-generatorfor the PDGF tool 
 
-The runnable version of the tool (jar file) can be downlad from:
+The runnable version of the tool (jar file) can be downladed from:
 https://drive.google.com/file/d/1ao4DT32x6kEOrJbhGPG-YcyLNoXX63Tx/view?usp=sharing
 
 ### owl-data-generator dependencies
