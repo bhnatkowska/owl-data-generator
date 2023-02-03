@@ -26,10 +26,13 @@ More info: https://www.bankmark.de/products-and-services/pdgf/.
 1. Prepare a configuration file and store it in the location `path_to_configuration_file` (set in the yaml configuration file, examples available)
 2. Copy the input ontology to the "input" folder (set in the yaml configuration file)
 3. In the console run the command:
-  'java -jar ontology-data-generator.jar <input_ontology_file> --spring.config.location=<path_to_configuration_file>'
+  
+  java -jar ontology-data-generator.jar <input_ontology_file> --spring.config.location=<path_to_configuration_file>
+
 Generation results will be available in the "output" folder (set in the yaml configuration file).
 
 #### Metrics calculation
 In the console run the command:
-  'java -jar ontology-data-generator.jar <input_ontology_file> --spring.config.location=<path_to_configuration_file> calculate-metrics'
+  
+  java -jar ontology-data-generator.jar <input_ontology_file> --spring.config.location=<path_to_configuration_file> calculate-metrics
 ####
