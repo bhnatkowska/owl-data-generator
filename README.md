@@ -1,11 +1,12 @@
 # owl-data-generator
 
 This repository contains a datastore demonstrating input/output/configuration of the owl-data-generator tool.
-input - examples of OWL2 ontologies for which data are generated
-output - enriched ontologies with data generated according to configuration settings (kept in a yaml file)
-dictionary - example glossary definitions used for generation process
-configuration - automatically generated configurations by the owl-data-generator for the PDGF tool
-schema - automatically generated schema  by the owl-data-generatorfor the PDGF tool 
+
+- input - examples of OWL2 ontologies for which data are generated
+- output - enriched ontologies with data generated according to configuration settings (kept in a yaml file)
+- dictionary - example glossary definitions used for generation process
+- configuration - automatically generated configurations by the owl-data-generator for the PDGF tool
+- schema - automatically generated schema  by the owl-data-generatorfor the PDGF tool 
 
 The runnable version of the tool (jar file) can be downladed from:
 https://drive.google.com/file/d/1ao4DT32x6kEOrJbhGPG-YcyLNoXX63Tx/view?usp=sharing
