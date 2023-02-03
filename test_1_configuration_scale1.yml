@@ -1,0 +1,138 @@
+app:
+  owl:
+    output-ontology-syntax: FUNCTIONAL
+  datastore:
+    url: file:/home/ubuntu/ontology-data-generator/datastore
+    input: input
+    output: output
+    schema: schema
+    configuration: configuration
+  generator:
+    pdgf:
+      home:
+        url: file:/home/ubuntu/PDGFEnvironment
+      datageneration:
+        seed: 123456789L
+        rng: PdgfDefaultRandom
+        scalefactor: 1
+        size: 3
+        identifier-field-name: __identifier__
+        tables:
+          Company: 1
+        properties:
+          birthdate:
+            constraints:
+              minInclusive: 1970-01-01T00:00:00Z
+              maxInclusive: 2000-01-01T00:00:00Z
+            precision: DAYS
+          foundationYear:
+            distribution:
+              type: Normal
+              mean: 2000
+              sd: 15
+            constrainsts:
+              maxInclusive: 2019
+          height:
+            distribution:
+              type: Normal
+              mean: 170
+              sd: 15
+          weight:
+            distribution:
+              type: Normal
+              mean: 75.0
+              sd: 20.0
+            precision: 2
+          salary:
+            distribution:
+              type: Normal
+              mean: 4800
+              sd: 2500
+          experience:
+            distribution:
+              type: Normal
+              mean: 5
+              sd: 3
+        dictionaries:
+          - url: file:/home/ubuntu/ontology-data-generator/datastore/dictionary/xsd_language_dict.txt
+            supportedDatatypes:
+              - RDFS_LITERAL
+              - XSD_LANGUAGE
+              - RDF_LANG_STRING
+            keywords:
+              conceptKeywords:
+                - language tag
+                - lang
+              propertyKeywords:
+                - prop1
+          - url: file:/home/ubuntu/ontology-data-generator/datastore/dictionary/personal_data/first_names.dict
+            supportedDatatypes:
+              - RDFS_LITERAL
+              - XSD_STRING
+            keywords:
+              conceptKeywords:
+                - person
+              propertyKeywords:
+                - first name
+          - url: file:/home/ubuntu/ontology-data-generator/datastore/dictionary/personal_data/last_names.dict
+            supportedDatatypes:
+              - RDFS_LITERAL
+              - XSD_STRING
+            keywords:
+              conceptKeywords:
+                - person
+              propertyKeywords:
+                - last name
+          - url: file:/home/ubuntu/ontology-data-generator/datastore/dictionary/personal_data/email_providers.dict
+            supportedDatatypes:
+              - RDFS_LITERAL
+              - XSD_STRING
+            keywords:
+              propertyKeywords:
+                - email provider
+          - url: file:/home/ubuntu/ontology-data-generator/datastore/dictionary/geographical/countries.dict
+            supportedDatatypes:
+              - RDFS_LITERAL
+              - XSD_STRING
+            keywords:
+              propertyKeywords:
+                - country
+          - url: file:/home/ubuntu/ontology-data-generator/datastore/dictionary/personal_data/hobbies.dict
+            supportedDatatypes:
+              - RDFS_LITERAL
+              - XSD_STRING
+            keywords:
+              propertyKeywords:
+                - hobby
+          - url: file:/home/ubuntu/ontology-data-generator/datastore/dictionary/job/occupations.dict
+            supportedDatatypes:
+              - RDFS_LITERAL
+              - XSD_STRING
+            keywords:
+              conceptKeywords:
+                - occupation
+              propertyKeywords:
+                - name
+          - url: file:/home/ubuntu/ontology-data-generator/datastore/dictionary/job/contract_types.dict
+            supportedDatatypes:
+              - RDFS_LITERAL
+              - XSD_STRING
+            keywords:
+              propertyKeywords:
+                - contract type
+          - url: file:/home/ubuntu/ontology-data-generator/datastore/dictionary/job/company_names.dict
+            supportedDatatypes:
+              - RDFS_LITERAL
+              - XSD_STRING
+            keywords:
+              conceptKeywords:
+                - company
+              propertyKeywords:
+                - name
+          - url: file:/home/ubuntu/ontology-data-generator/datastore/dictionary/websites.dict
+            supportedDatatypes:
+              - RDFS_LITERAL
+              - XSD_ANY_URI
+            keywords:
+              propertyKeywords:
+                - website
