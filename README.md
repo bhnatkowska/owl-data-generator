@@ -7,7 +7,7 @@ dictionary - example glossary definitions used for generation process
 configuration - automatically generated configurations by the owl-data-generator for the PDGF tool
 schema - automatically generated schema  by the owl-data-generatorfor the PDGF tool 
 
-owl-data-generator dependencies
+### owl-data-generator dependencies
 #### Java SDK 15
 Can be download from https://openjdk.java.net lub https://www.oracle.com/java/technologies/javase/jdk15-archive-downloads.html.
 #### PDGF 2.7
