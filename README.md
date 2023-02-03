@@ -1,7 +1,10 @@
 # owl-data-generator
 
 This repository contains a datastore demonstrating input/output/configuration of the owl-data-generator tool.
+The tool generates instances for a given OWL 2 domain ontology based on configuration and external data sources (dictionaries).
 
+Datastore content:
+yaml files - example configurations for test ontologies (see input)
 - input - examples of OWL2 ontologies for which data are generated
 - output - enriched ontologies with data generated according to configuration settings (kept in a yaml file)
 - dictionary - example glossary definitions used for generation process
