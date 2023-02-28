@@ -22,17 +22,47 @@ A license required; can be obtain by a personal contact with info@bankmark.de
 More info: https://www.bankmark.de/products-and-services/pdgf/.
 
 ### Running instruction
-#### Data generation
+#### Initial tests
+1. Create a folder, e.g. c:\Tmp and copy the jar file to it
+2. Download the repository content to c:\Tmp
+3. Open commant prompt and go to the c:\Tmp folder
+
+##### Exemplary commands
+Data generation for the Test ontology (scalefactor=1) - requires PDGF to be installed:
+java -jar ontology-data-generator.jar test.owl --spring.config.location=./test_configuration_scale1.yml all
+
+Data generation for the Test ontology (scalefactor=1) based on the previously generated data by the PDGF tool:
+java -jar ontology-data-generator.jar test.owl --spring.config.location=./test_configuration_scale1.yml populate-data
+
+Data generation for the Test ontology (scalefactor=1) based on the previously generated data by the PDGF tool with metrics calculation:
+java -jar ontology-data-generator.jar test.owl --spring.config.location=./test_configuration_scale1.yml populate-data calc-metrics
+
+Metrics calculation for the Test ontology (in the input folder):
+java -jar ontology-data-generator.jar test.owl --spring.config.location=./test_configuration_scale1.yml calc-metrics
+
+Data generation for the Univ-bench ontology (scalefactor=1) - requires PDGF to be installed:
+java -jar ontology-data-generator.jar univ-bench.owl --spring.config.location=./univ_bench_configuration_scale1.yml all
+
+Data generation for the Test ontology (scalefactor=1) based on the previously generated data by the PDGF tool:
+java -jar ontology-data-generator.jar univ-bench.owl --spring.config.location=./univ_bench_configuration_scale1.yml populate-data
+
+Data generation for the Test ontology (scalefactor=1) based on the previously generated data by the PDGF tool with metrics calculation:
+java -jar ontology-data-generator.jar univ-bench.owl --spring.config.location=./univ_bench_configuration_scale1.yml populate-data calc-metrics
+
+Metrics calculation for the Test ontology (in the input folder):
+java -jar ontology-data-generator.jar univ-bench.owl --spring.config.location=./univ_bench_configuration_scale1.yml calc-metrics
+
+#### Data generation for other ontologies (requires PDGF tool to be installed)
 1. Prepare a configuration file and store it in the location `path_to_configuration_file` (set in the yaml configuration file, examples available)
 2. Copy the input ontology to the "input" folder (set in the yaml configuration file)
-3. In the console run the command:
+6. In the console run the command:
   
-  java -jar ontology-data-generator.jar <input_ontology_file> --spring.config.location=<path_to_configuration_file>
+  java -jar ontology-data-generator.jar <input_ontology_file> --spring.config.location=<path_to_configuration_file> all
 
 Generation results will be available in the "output" folder (set in the yaml configuration file).
 
 #### Metrics calculation
 In the console run the command:
   
-  java -jar ontology-data-generator.jar <input_ontology_file> --spring.config.location=<path_to_configuration_file> calculate-metrics
+  java -jar ontology-data-generator.jar <input_ontology_file> --spring.config.location=<path_to_configuration_file> calc-metrics
 ####
