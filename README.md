@@ -28,7 +28,7 @@ More info: https://www.bankmark.de/products-and-services/pdgf/.
 3. Open commant prompt and go to the c:\Tmp folder
 
 ##### Exemplary commands
-Data generation for the Test ontology (scalefactor=1) - requires PDGF to be installed:
+- Data generation for the Test ontology (scalefactor=1) - requires PDGF to be installed:
 
 java -jar ontology-data-generator.jar test.owl --spring.config.location=./test_configuration_scale1.yml all
 
