@@ -12,7 +12,7 @@ Datastore content:
 - datastore/schema - automatically generated schema  by the owl-data-generatorfor the PDGF tool 
 
 The runnable version of the tool (jar file) can be downladed from:
-https://drive.google.com/file/d/1ao4DT32x6kEOrJbhGPG-YcyLNoXX63Tx/view?usp=sharing
+https://drive.google.com/file/d/1IfUIRncg8RsGhqxOGQ8n_ij6GN91Ko_w/view?usp=sharing
 
 ### owl-data-generator dependencies
 #### Java SDK 15
