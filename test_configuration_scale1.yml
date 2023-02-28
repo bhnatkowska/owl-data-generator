@@ -13,7 +13,7 @@ app:
       maxCount: 1
     pdgf:
       home:
-        url: file:/c:/Tmp/PDGFEnvironment
+        url: file:/PDGFEnvironment
       datageneration:
         seed: 123456789L
         rng: PdgfDefaultRandom
@@ -21,49 +21,7 @@ app:
         size: 3
         identifier-field-name: __identifier__
         tables:
-          AdministrativeStaff: 30
-          Article: 50
-          AssistantProfessor: 25
-          AssociateProfessor: 20
-          Book: 30
-          Chair: 15
-          ClericalStaff: 20
-          College: 100
-          ConferencePaper: 260
-          Course: 40
-          Dean: 20
-          Department: 7
-          Director: 15
-          Employee: 100
-          Faculty: 15
-          FullProfessor: 25
-          GraduateCourse: 30
-          GraduateStudent: 300
-          Institute: 20
-          JournalArticle: 200
-          Lecturer: 80
-          Manual: 90
-          Organization: 1
-          Person: 500
-          PostDoc: 25
-          Professor: 20
-          Program: 20
-          Publication: 200
-          Research: 200
-          ResearchAssistant: 60
-          ResearchGroup: 15
-          Schedule: 20
-          Software: 100
-          Specification: 30
-          Student: 500
-          SystemsStaff: 30
-          TeachingAssistant: 30
-          TechnicalReport: 70
-          UndergraduateStudent: 200
-          University: 1
-          UnofficialPublication: 45
-          VisitingProfessor: 15
-          Work: 90
+          Company: 1
         properties:
           birthdate:
             constraints:
@@ -77,13 +35,11 @@ app:
               sd: 15
             constrainsts:
               maxInclusive: 2019
-          age:
+          height:
             distribution:
               type: Normal
-              mean: 40
+              mean: 170
               sd: 15
-            constrainsts:
-              minExclusive: 0
           weight:
             distribution:
               type: Normal
@@ -101,7 +57,7 @@ app:
               mean: 5
               sd: 3
         dictionaries:
-          - url: file:/c:/Tmp/datastore/dictionary/xsd_language_dict.txt
+          - url: file:/c:/tmp/datastore/datastore/dictionary/xsd_language_dict.txt
             supportedDatatypes:
               - RDFS_LITERAL
               - XSD_LANGUAGE
@@ -112,7 +68,7 @@ app:
                 - lang
               propertyKeywords:
                 - prop1
-          - url: file:/c:/Tmp/datastore/dictionary/personal_data/first_names.dict
+          - url: file:/c:/tmp/datastore/dictionary/personal_data/first_names.dict
             supportedDatatypes:
               - RDFS_LITERAL
               - XSD_STRING
@@ -121,7 +77,7 @@ app:
                 - person
               propertyKeywords:
                 - first name
-          - url: file:/c:/Tmp/datastore/dictionary/personal_data/last_names.dict
+          - url: file:/c:/tmp/datastore/dictionary/personal_data/last_names.dict
             supportedDatatypes:
               - RDFS_LITERAL
               - XSD_STRING
@@ -130,28 +86,28 @@ app:
                 - person
               propertyKeywords:
                 - last name
-          - url: file:/c:/Tmp/datastore/dictionary/personal_data/email_providers.dict
+          - url: file:/c:/tmp/datastore/dictionary/personal_data/email_providers.dict
             supportedDatatypes:
               - RDFS_LITERAL
               - XSD_STRING
             keywords:
               propertyKeywords:
                 - email provider
-          - url: file:/c:/Tmp/datastore/dictionary/geographical/countries.dict
+          - url: file:/c:/tmp/datastore/dictionary/geographical/countries.dict
             supportedDatatypes:
               - RDFS_LITERAL
               - XSD_STRING
             keywords:
               propertyKeywords:
                 - country
-          - url: file:/c:/Tmp/datastore/dictionary/personal_data/hobbies.dict
+          - url: file:/c:/tmp/datastore/dictionary/personal_data/hobbies.dict
             supportedDatatypes:
               - RDFS_LITERAL
               - XSD_STRING
             keywords:
               propertyKeywords:
                 - hobby
-          - url: file:/c:/Tmp/datastore/dictionary/job/occupations.dict
+          - url: file:/c:/tmp/datastore/dictionary/job/occupations.dict
             supportedDatatypes:
               - RDFS_LITERAL
               - XSD_STRING
@@ -160,14 +116,14 @@ app:
                 - occupation
               propertyKeywords:
                 - name
-          - url: file:/c:/Tmp/datastore/dictionary/job/contract_types.dict
+          - url: file:/c:/tmp/datastore/dictionary/job/contract_types.dict
             supportedDatatypes:
               - RDFS_LITERAL
               - XSD_STRING
             keywords:
               propertyKeywords:
                 - contract type
-          - url: file:/c:/Tmp/datastore/dictionary/job/company_names.dict
+          - url: file:/c:/tmp/datastore/dictionary/job/company_names.dict
             supportedDatatypes:
               - RDFS_LITERAL
               - XSD_STRING
@@ -176,7 +132,7 @@ app:
                 - company
               propertyKeywords:
                 - name
-          - url: file:/c:/Tmp/datastore/dictionary/websites.dict
+          - url: file:/c:/tmp/datastore/dictionary/websites.dict
             supportedDatatypes:
               - RDFS_LITERAL
               - XSD_ANY_URI
