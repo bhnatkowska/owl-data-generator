@@ -1,0 +1,338 @@
+Prefix(:=<http://pwr.edu.pl/onto/test-ontology.owl#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://pwr.edu.pl/onto/test-ontology.owl>
+Annotation(rdfs:comment "Test Ontology")
+Annotation(rdfs:label "Test Ontology")
+Annotation(owl:versionInfo "test-ontology-owl, ver May 15, 2021")
+
+Declaration(Class(:Company))
+Declaration(Class(:Person))
+Declaration(Class(:Profession))
+Declaration(Class(:Worker))
+Declaration(ObjectProperty(:founded))
+Declaration(ObjectProperty(:hasFounder))
+Declaration(ObjectProperty(:hasProfession))
+Declaration(ObjectProperty(:likes))
+Declaration(ObjectProperty(:worksFor))
+Declaration(DataProperty(:birthdate))
+Declaration(DataProperty(:emailAddress))
+Declaration(DataProperty(:experience))
+Declaration(DataProperty(:foundationYear))
+Declaration(DataProperty(:givenName))
+Declaration(DataProperty(:height))
+Declaration(DataProperty(:interest))
+Declaration(DataProperty(:isFirstJob))
+Declaration(DataProperty(:jobSatisfaction))
+Declaration(DataProperty(:likesWebsite))
+Declaration(DataProperty(:name))
+Declaration(DataProperty(:nation))
+Declaration(DataProperty(:salary))
+Declaration(DataProperty(:surname))
+Declaration(DataProperty(:telephone))
+Declaration(DataProperty(:typeOfAgreement))
+Declaration(DataProperty(:weight))
+Declaration(NamedIndividual(:Company1))
+Declaration(NamedIndividual(:Person1))
+Declaration(NamedIndividual(:Person2))
+Declaration(NamedIndividual(:Person3))
+Declaration(NamedIndividual(:Profession1))
+Declaration(NamedIndividual(:Profession2))
+Declaration(NamedIndividual(:Profession3))
+Declaration(NamedIndividual(:Worker1))
+Declaration(NamedIndividual(:Worker2))
+Declaration(NamedIndividual(:Worker3))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: <http://pwr.edu.pl/onto/test-ontology.owl#founded> (<http://pwr.edu.pl/onto/test-ontology.owl#founded>)
+
+InverseObjectProperties(:hasFounder :founded)
+
+# Object Property: <http://pwr.edu.pl/onto/test-ontology.owl#hasFounder> (<http://pwr.edu.pl/onto/test-ontology.owl#hasFounder>)
+
+FunctionalObjectProperty(:hasFounder)
+ObjectPropertyDomain(:hasFounder :Company)
+ObjectPropertyRange(:hasFounder :Person)
+
+# Object Property: <http://pwr.edu.pl/onto/test-ontology.owl#hasProfession> (<http://pwr.edu.pl/onto/test-ontology.owl#hasProfession>)
+
+ObjectPropertyDomain(:hasProfession :Worker)
+ObjectPropertyRange(:hasProfession :Profession)
+
+# Object Property: <http://pwr.edu.pl/onto/test-ontology.owl#likes> (<http://pwr.edu.pl/onto/test-ontology.owl#likes>)
+
+SymmetricObjectProperty(:likes)
+ObjectPropertyDomain(:likes :Person)
+ObjectPropertyRange(:likes :Person)
+
+# Object Property: <http://pwr.edu.pl/onto/test-ontology.owl#worksFor> (<http://pwr.edu.pl/onto/test-ontology.owl#worksFor>)
+
+ObjectPropertyDomain(:worksFor :Worker)
+ObjectPropertyRange(:worksFor :Company)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: <http://pwr.edu.pl/onto/test-ontology.owl#birthdate> (<http://pwr.edu.pl/onto/test-ontology.owl#birthdate>)
+
+DataPropertyDomain(:birthdate :Person)
+DataPropertyRange(:birthdate xsd:dateTime)
+
+# Data Property: <http://pwr.edu.pl/onto/test-ontology.owl#emailAddress> (<http://pwr.edu.pl/onto/test-ontology.owl#emailAddress>)
+
+DataPropertyDomain(:emailAddress :Person)
+DataPropertyRange(:emailAddress xsd:string)
+
+# Data Property: <http://pwr.edu.pl/onto/test-ontology.owl#experience> (<http://pwr.edu.pl/onto/test-ontology.owl#experience>)
+
+DataPropertyDomain(:experience :Worker)
+DataPropertyRange(:experience xsd:positiveInteger)
+
+# Data Property: <http://pwr.edu.pl/onto/test-ontology.owl#foundationYear> (<http://pwr.edu.pl/onto/test-ontology.owl#foundationYear>)
+
+DataPropertyDomain(:foundationYear :Company)
+DataPropertyRange(:foundationYear xsd:unsignedShort)
+
+# Data Property: <http://pwr.edu.pl/onto/test-ontology.owl#givenName> (<http://pwr.edu.pl/onto/test-ontology.owl#givenName>)
+
+DataPropertyDomain(:givenName :Person)
+DataPropertyRange(:givenName xsd:string)
+
+# Data Property: <http://pwr.edu.pl/onto/test-ontology.owl#height> (<http://pwr.edu.pl/onto/test-ontology.owl#height>)
+
+DataPropertyDomain(:height :Person)
+DataPropertyRange(:height DatatypeRestriction(xsd:integer xsd:minExclusive "0"^^xsd:integer xsd:maxExclusive "300"^^xsd:integer))
+
+# Data Property: <http://pwr.edu.pl/onto/test-ontology.owl#interest> (<http://pwr.edu.pl/onto/test-ontology.owl#interest>)
+
+DataPropertyDomain(:interest :Person)
+DataPropertyRange(:interest xsd:string)
+
+# Data Property: <http://pwr.edu.pl/onto/test-ontology.owl#isFirstJob> (<http://pwr.edu.pl/onto/test-ontology.owl#isFirstJob>)
+
+DataPropertyDomain(:isFirstJob :Worker)
+DataPropertyRange(:isFirstJob xsd:boolean)
+
+# Data Property: <http://pwr.edu.pl/onto/test-ontology.owl#jobSatisfaction> (<http://pwr.edu.pl/onto/test-ontology.owl#jobSatisfaction>)
+
+DataPropertyDomain(:jobSatisfaction :Worker)
+DataPropertyRange(:jobSatisfaction DatatypeRestriction(xsd:byte xsd:minInclusive "1"^^xsd:byte xsd:maxInclusive "10"^^xsd:byte))
+
+# Data Property: <http://pwr.edu.pl/onto/test-ontology.owl#likesWebsite> (<http://pwr.edu.pl/onto/test-ontology.owl#likesWebsite>)
+
+DataPropertyDomain(:likesWebsite :Person)
+DataPropertyRange(:likesWebsite xsd:anyURI)
+
+# Data Property: <http://pwr.edu.pl/onto/test-ontology.owl#name> (name)
+
+AnnotationAssertion(rdfs:label :name "name")
+DataPropertyRange(:name xsd:string)
+
+# Data Property: <http://pwr.edu.pl/onto/test-ontology.owl#nation> (<http://pwr.edu.pl/onto/test-ontology.owl#nation>)
+
+DataPropertyDomain(:nation :Person)
+DataPropertyRange(:nation xsd:string)
+
+# Data Property: <http://pwr.edu.pl/onto/test-ontology.owl#salary> (<http://pwr.edu.pl/onto/test-ontology.owl#salary>)
+
+DataPropertyDomain(:salary :Worker)
+DataPropertyRange(:salary xsd:positiveInteger)
+
+# Data Property: <http://pwr.edu.pl/onto/test-ontology.owl#surname> (<http://pwr.edu.pl/onto/test-ontology.owl#surname>)
+
+DataPropertyDomain(:surname :Person)
+DataPropertyRange(:surname xsd:string)
+
+# Data Property: <http://pwr.edu.pl/onto/test-ontology.owl#telephone> (<http://pwr.edu.pl/onto/test-ontology.owl#telephone>)
+
+DataPropertyDomain(:telephone :Person)
+DataPropertyRange(:telephone DatatypeRestriction(xsd:integer xsd:minInclusive "100000000"^^xsd:integer xsd:maxInclusive "999999999"^^xsd:integer))
+
+# Data Property: <http://pwr.edu.pl/onto/test-ontology.owl#typeOfAgreement> (<http://pwr.edu.pl/onto/test-ontology.owl#typeOfAgreement>)
+
+DataPropertyDomain(:typeOfAgreement :Worker)
+DataPropertyRange(:typeOfAgreement xsd:string)
+
+# Data Property: <http://pwr.edu.pl/onto/test-ontology.owl#weight> (<http://pwr.edu.pl/onto/test-ontology.owl#weight>)
+
+DataPropertyDomain(:weight :Person)
+DataPropertyRange(:weight DatatypeRestriction(xsd:double xsd:minExclusive "0.0"^^xsd:double))
+
+
+
+############################
+#   Classes
+############################
+
+# Class: <http://pwr.edu.pl/onto/test-ontology.owl#Worker> (<http://pwr.edu.pl/onto/test-ontology.owl#Worker>)
+
+SubClassOf(:Worker :Person)
+SubClassOf(:Worker ObjectMinCardinality(1 :hasProfession :Profession))
+SubClassOf(:Worker ObjectMaxCardinality(2 :hasProfession :Profession))
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: <http://pwr.edu.pl/onto/test-ontology.owl#Company1> (<http://pwr.edu.pl/onto/test-ontology.owl#Company1>)
+
+ClassAssertion(:Company :Company1)
+ObjectPropertyAssertion(:hasFounder :Company1 :Person3)
+DataPropertyAssertion(:foundationYear :Company1 "1995"^^xsd:unsignedShort)
+DataPropertyAssertion(:name :Company1 "Avratens")
+
+# Individual: <http://pwr.edu.pl/onto/test-ontology.owl#Person1> (<http://pwr.edu.pl/onto/test-ontology.owl#Person1>)
+
+ClassAssertion(:Person :Person1)
+ObjectPropertyAssertion(:likes :Person1 :Worker2)
+DataPropertyAssertion(:birthdate :Person1 "1992-08-06T00:00:00Z"^^xsd:dateTime)
+DataPropertyAssertion(:emailAddress :Person1 "tonu.labarge@safe-mail.net")
+DataPropertyAssertion(:givenName :Person1 "Tonu")
+DataPropertyAssertion(:height :Person1 "154"^^xsd:integer)
+DataPropertyAssertion(:interest :Person1 "doing sport")
+DataPropertyAssertion(:likesWebsite :Person1 "digg.com"^^xsd:anyURI)
+DataPropertyAssertion(:name :Person1 "Tonu Labarge")
+DataPropertyAssertion(:nation :Person1 "Tunisia")
+DataPropertyAssertion(:surname :Person1 "Labarge")
+DataPropertyAssertion(:telephone :Person1 "518667136"^^xsd:integer)
+DataPropertyAssertion(:weight :Person1 "67.77"^^xsd:double)
+
+# Individual: <http://pwr.edu.pl/onto/test-ontology.owl#Person2> (<http://pwr.edu.pl/onto/test-ontology.owl#Person2>)
+
+ClassAssertion(:Person :Person2)
+ObjectPropertyAssertion(:likes :Person2 :Worker1)
+ObjectPropertyAssertion(:likes :Person2 :Worker2)
+DataPropertyAssertion(:birthdate :Person2 "1992-08-06T00:00:00Z"^^xsd:dateTime)
+DataPropertyAssertion(:emailAddress :Person2 "gilemette.holton@aol.com")
+DataPropertyAssertion(:givenName :Person2 "Gilemette")
+DataPropertyAssertion(:height :Person2 "190"^^xsd:integer)
+DataPropertyAssertion(:interest :Person2 "reading books")
+DataPropertyAssertion(:likesWebsite :Person2 "aol.com"^^xsd:anyURI)
+DataPropertyAssertion(:name :Person2 "Gilemette Holton")
+DataPropertyAssertion(:nation :Person2 "Brazil")
+DataPropertyAssertion(:surname :Person2 "Holton")
+DataPropertyAssertion(:telephone :Person2 "973613941"^^xsd:integer)
+DataPropertyAssertion(:weight :Person2 "69.32"^^xsd:double)
+
+# Individual: <http://pwr.edu.pl/onto/test-ontology.owl#Person3> (<http://pwr.edu.pl/onto/test-ontology.owl#Person3>)
+
+ClassAssertion(:Person :Person3)
+ObjectPropertyAssertion(:founded :Person3 :Company1)
+ObjectPropertyAssertion(:likes :Person3 :Worker1)
+DataPropertyAssertion(:birthdate :Person3 "1982-07-27T00:00:00Z"^^xsd:dateTime)
+DataPropertyAssertion(:emailAddress :Person3 "muhammad.wytenburg@live.com")
+DataPropertyAssertion(:givenName :Person3 "Muhammad")
+DataPropertyAssertion(:height :Person3 "141"^^xsd:integer)
+DataPropertyAssertion(:interest :Person3 "listening to music")
+DataPropertyAssertion(:likesWebsite :Person3 "lemonde.fr"^^xsd:anyURI)
+DataPropertyAssertion(:name :Person3 "Muhammad Wytenburg")
+DataPropertyAssertion(:nation :Person3 "Guinea-Bissau")
+DataPropertyAssertion(:surname :Person3 "Wytenburg")
+DataPropertyAssertion(:telephone :Person3 "733177667"^^xsd:integer)
+DataPropertyAssertion(:weight :Person3 "80.77"^^xsd:double)
+
+# Individual: <http://pwr.edu.pl/onto/test-ontology.owl#Profession1> (<http://pwr.edu.pl/onto/test-ontology.owl#Profession1>)
+
+ClassAssertion(:Profession :Profession1)
+DataPropertyAssertion(:name :Profession1 "web designer")
+
+# Individual: <http://pwr.edu.pl/onto/test-ontology.owl#Profession2> (<http://pwr.edu.pl/onto/test-ontology.owl#Profession2>)
+
+ClassAssertion(:Profession :Profession2)
+DataPropertyAssertion(:name :Profession2 "secretary")
+
+# Individual: <http://pwr.edu.pl/onto/test-ontology.owl#Profession3> (<http://pwr.edu.pl/onto/test-ontology.owl#Profession3>)
+
+ClassAssertion(:Profession :Profession3)
+DataPropertyAssertion(:name :Profession3 "research scientist")
+
+# Individual: <http://pwr.edu.pl/onto/test-ontology.owl#Worker1> (<http://pwr.edu.pl/onto/test-ontology.owl#Worker1>)
+
+ClassAssertion(:Worker :Worker1)
+ObjectPropertyAssertion(:hasProfession :Worker1 :Profession2)
+ObjectPropertyAssertion(:likes :Worker1 :Person2)
+ObjectPropertyAssertion(:likes :Worker1 :Person3)
+ObjectPropertyAssertion(:worksFor :Worker1 :Company1)
+DataPropertyAssertion(:birthdate :Worker1 "1974-08-20T00:00:00Z"^^xsd:dateTime)
+DataPropertyAssertion(:emailAddress :Worker1 "huan-yu.abelow@rocketmail.com")
+DataPropertyAssertion(:experience :Worker1 "3"^^xsd:positiveInteger)
+DataPropertyAssertion(:givenName :Worker1 "Huan-yu")
+DataPropertyAssertion(:height :Worker1 "169"^^xsd:integer)
+DataPropertyAssertion(:interest :Worker1 "fishing")
+DataPropertyAssertion(:isFirstJob :Worker1 "false"^^xsd:boolean)
+DataPropertyAssertion(:jobSatisfaction :Worker1 "3"^^xsd:byte)
+DataPropertyAssertion(:likesWebsite :Worker1 "ria.ru"^^xsd:anyURI)
+DataPropertyAssertion(:name :Worker1 "Huan-yu Abelow")
+DataPropertyAssertion(:nation :Worker1 "Ukraine")
+DataPropertyAssertion(:salary :Worker1 "741"^^xsd:positiveInteger)
+DataPropertyAssertion(:surname :Worker1 "Abelow")
+DataPropertyAssertion(:telephone :Worker1 "672930171"^^xsd:integer)
+DataPropertyAssertion(:typeOfAgreement :Worker1 "employment agreement")
+DataPropertyAssertion(:weight :Worker1 "77.8"^^xsd:double)
+
+# Individual: <http://pwr.edu.pl/onto/test-ontology.owl#Worker2> (<http://pwr.edu.pl/onto/test-ontology.owl#Worker2>)
+
+ClassAssertion(:Worker :Worker2)
+ObjectPropertyAssertion(:hasProfession :Worker2 :Profession1)
+ObjectPropertyAssertion(:hasProfession :Worker2 :Profession2)
+ObjectPropertyAssertion(:likes :Worker2 :Person1)
+ObjectPropertyAssertion(:likes :Worker2 :Person2)
+ObjectPropertyAssertion(:likes :Worker2 :Worker2)
+ObjectPropertyAssertion(:worksFor :Worker2 :Company1)
+DataPropertyAssertion(:birthdate :Worker2 "1974-08-20T00:00:00Z"^^xsd:dateTime)
+DataPropertyAssertion(:emailAddress :Worker2 "wendye.gaboury@msn.com")
+DataPropertyAssertion(:experience :Worker2 "8"^^xsd:positiveInteger)
+DataPropertyAssertion(:givenName :Worker2 "Wendye")
+DataPropertyAssertion(:height :Worker2 "161"^^xsd:integer)
+DataPropertyAssertion(:interest :Worker2 "doing sport")
+DataPropertyAssertion(:isFirstJob :Worker2 "true"^^xsd:boolean)
+DataPropertyAssertion(:jobSatisfaction :Worker2 "8"^^xsd:byte)
+DataPropertyAssertion(:likesWebsite :Worker2 "naver.com"^^xsd:anyURI)
+DataPropertyAssertion(:name :Worker2 "Wendye Gaboury")
+DataPropertyAssertion(:nation :Worker2 "Argentina")
+DataPropertyAssertion(:salary :Worker2 "4746"^^xsd:positiveInteger)
+DataPropertyAssertion(:surname :Worker2 "Gaboury")
+DataPropertyAssertion(:telephone :Worker2 "440764126"^^xsd:integer)
+DataPropertyAssertion(:typeOfAgreement :Worker2 "employment agreement")
+DataPropertyAssertion(:weight :Worker2 "92.38"^^xsd:double)
+
+# Individual: <http://pwr.edu.pl/onto/test-ontology.owl#Worker3> (<http://pwr.edu.pl/onto/test-ontology.owl#Worker3>)
+
+ClassAssertion(:Worker :Worker3)
+ObjectPropertyAssertion(:hasProfession :Worker3 :Profession1)
+ObjectPropertyAssertion(:hasProfession :Worker3 :Profession3)
+ObjectPropertyAssertion(:likes :Worker3 :Worker3)
+ObjectPropertyAssertion(:worksFor :Worker3 :Company1)
+DataPropertyAssertion(:birthdate :Worker3 "1999-12-31T00:00:00Z"^^xsd:dateTime)
+DataPropertyAssertion(:emailAddress :Worker3 "denise.huhn@hotmail.com")
+DataPropertyAssertion(:experience :Worker3 "5"^^xsd:positiveInteger)
+DataPropertyAssertion(:givenName :Worker3 "Denise")
+DataPropertyAssertion(:height :Worker3 "156"^^xsd:integer)
+DataPropertyAssertion(:interest :Worker3 "playing video games")
+DataPropertyAssertion(:isFirstJob :Worker3 "true"^^xsd:boolean)
+DataPropertyAssertion(:jobSatisfaction :Worker3 "6"^^xsd:byte)
+DataPropertyAssertion(:likesWebsite :Worker3 "ietf.org"^^xsd:anyURI)
+DataPropertyAssertion(:name :Worker3 "Denise Huhn")
+DataPropertyAssertion(:nation :Worker3 "Rwanda")
+DataPropertyAssertion(:salary :Worker3 "2409"^^xsd:positiveInteger)
+DataPropertyAssertion(:surname :Worker3 "Huhn")
+DataPropertyAssertion(:telephone :Worker3 "207767569"^^xsd:integer)
+DataPropertyAssertion(:typeOfAgreement :Worker3 "order contract")
+DataPropertyAssertion(:weight :Worker3 "78.1"^^xsd:double)
+
+
+DifferentIndividuals(:Person1 :Person2 :Person3 :Worker1 :Worker2 :Worker3)
+DifferentIndividuals(:Profession1 :Profession2 :Profession3)
+DifferentIndividuals(:Worker1 :Worker2 :Worker3)
+)

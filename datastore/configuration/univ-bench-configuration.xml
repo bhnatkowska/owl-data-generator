@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<generation>
+    <scheduler name="DefaultScheduler"/>
+    <output name="CSVRowOutput">
+        <charset>UTF-8</charset>
+        <delimiter>,</delimiter>
+        <fileEnding>.csv</fileEnding>
+        <fileTemplate>outputDir + table.getName() + fileEnding</fileTemplate>
+        <outputDir>/c:/Tmp/datastore/output/univ-bench/</outputDir>
+        <quotationCharacter>"</quotationCharacter>
+        <quoteStrings>false</quoteStrings>
+        <sortByRowID>true</sortByRowID>
+    </output>
+    <schema name="univ-bench-schema">
+        <tables>
+            <table name="TechnicalReport"/>
+            <table name="GraduateStudent"/>
+            <table name="Manual"/>
+            <table name="Schedule"/>
+            <table name="Organization"/>
+            <table name="PostDoc"/>
+            <table name="AssistantProfessor"/>
+            <table name="Professor"/>
+            <table name="ResearchGroup"/>
+            <table name="Person"/>
+            <table name="Research"/>
+            <table name="TeachingAssistant"/>
+            <table name="Book"/>
+            <table name="Director"/>
+            <table name="Publication"/>
+            <table name="VisitingProfessor"/>
+            <table name="Article"/>
+            <table name="Faculty"/>
+            <table name="Dean"/>
+            <table name="GraduateCourse"/>
+            <table name="Program"/>
+            <table name="Specification"/>
+            <table name="ConferencePaper"/>
+            <table name="Course"/>
+            <table name="Institute"/>
+            <table name="UndergraduateStudent"/>
+            <table name="JournalArticle"/>
+            <table name="ResearchAssistant"/>
+            <table name="AdministrativeStaff"/>
+            <table name="Work"/>
+            <table name="SystemsStaff"/>
+            <table name="College"/>
+            <table name="Chair"/>
+            <table name="ClericalStaff"/>
+            <table name="Software"/>
+            <table name="Department"/>
+            <table name="Student"/>
+            <table name="AssociateProfessor"/>
+            <table name="University"/>
+            <table name="Employee"/>
+            <table name="FullProfessor"/>
+            <table name="Lecturer"/>
+            <table name="UnofficialPublication"/>
+        </tables>
+    </schema>
+</generation>
