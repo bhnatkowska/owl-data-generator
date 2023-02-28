@@ -29,27 +29,35 @@ More info: https://www.bankmark.de/products-and-services/pdgf/.
 
 ##### Exemplary commands
 Data generation for the Test ontology (scalefactor=1) - requires PDGF to be installed:
+
 java -jar ontology-data-generator.jar test.owl --spring.config.location=./test_configuration_scale1.yml all
 
 Data generation for the Test ontology (scalefactor=1) based on the previously generated data by the PDGF tool:
+
 java -jar ontology-data-generator.jar test.owl --spring.config.location=./test_configuration_scale1.yml populate-data
 
 Data generation for the Test ontology (scalefactor=1) based on the previously generated data by the PDGF tool with metrics calculation:
+
 java -jar ontology-data-generator.jar test.owl --spring.config.location=./test_configuration_scale1.yml populate-data calc-metrics
 
 Metrics calculation for the Test ontology (in the input folder):
+
 java -jar ontology-data-generator.jar test.owl --spring.config.location=./test_configuration_scale1.yml calc-metrics
 
 Data generation for the Univ-bench ontology (scalefactor=1) - requires PDGF to be installed:
+
 java -jar ontology-data-generator.jar univ-bench.owl --spring.config.location=./univ_bench_configuration_scale1.yml all
 
 Data generation for the Test ontology (scalefactor=1) based on the previously generated data by the PDGF tool:
+
 java -jar ontology-data-generator.jar univ-bench.owl --spring.config.location=./univ_bench_configuration_scale1.yml populate-data
 
 Data generation for the Test ontology (scalefactor=1) based on the previously generated data by the PDGF tool with metrics calculation:
+
 java -jar ontology-data-generator.jar univ-bench.owl --spring.config.location=./univ_bench_configuration_scale1.yml populate-data calc-metrics
 
 Metrics calculation for the Test ontology (in the input folder):
+
 java -jar ontology-data-generator.jar univ-bench.owl --spring.config.location=./univ_bench_configuration_scale1.yml calc-metrics
 
 #### Data generation for other ontologies (requires PDGF tool to be installed)
